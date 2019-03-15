@@ -1,4 +1,4 @@
-import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS, GET_POSTS_FAILURE} from '../actions/postAction.js'
+import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS, GET_POSTS_FAILURE} from '../actions/Action'
 
 const initialState = {
 	isFetching: false,

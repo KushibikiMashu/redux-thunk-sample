@@ -7,15 +7,15 @@ import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
-// import rootReduce from './reducers/rootReducer'
-import {getPosts} from './actions/postAction'
+import rootReducer from './reducers/rootReducer'
+import {getPosts} from './actions/Action'
 
 const store = createStore(
-	// rootReducer,
+	rootReducer,
 	applyMiddleware(thunk)
 	)
 
-// store.dispatch(getPosts())
+store.dispatch(getPosts())
 
 ReactDOM.render(
 	<Provider store={store}>

@@ -1,26 +1,25 @@
 import axios from 'axios'
 
-export const GET_POST_REQUEST = 'GET_POST_REQUEST'
-
+export const GET_POSTS_REQUEST = 'GET_POSTS_REQUEST'
 const getPostsRequest = () => {
 	return {
-		type: GET_POST_REQUEST
+		type: GET_POSTS_REQUEST
 	}
 }
 
-export const GET_POST_SUCCESS = 'GET_POST_SUCCESS'
+export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
 const getPostsSuccess = (json) => {
 	return {
-		type: GET_POST_SUCCESS,
+		type: GET_POSTS_SUCCESS,
 		posts: json,
 		receivedAt: Date.now()
 	}
 }
 
-export const GET_POST_FAILURE = 'GET_POST_FAILURE'
+export const GET_POSTS_FAILURE = 'GET_POSTS_FAILURE'
 const getPostsFailure = (error) => {
 	return {
-		type: GET_POST_FAILURE,
+		type: GET_POSTS_FAILURE,
 		error
 	}
 }

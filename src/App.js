@@ -1,36 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
-import GetPostList from './containers/GetPostListContainer'
+function App() {
+  const [post, setPost] = useState(null)
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
+  useEffect(() => {
+    axios
+      .get("/post.json")
+      .then(res => setPost(res.data))
+      .catch(err => new Error(err))
+  }, [])
 
-const App = () => (
-  <div>
-   <GetPostList />
-  </div>
-  )
+  if (post === null) {
+    return "Loading..."
+  }
 
-export default App;
+  return <div>{post.body}</div>
+}
+
+export default App
